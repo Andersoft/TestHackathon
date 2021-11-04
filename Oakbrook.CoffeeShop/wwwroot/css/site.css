@@ -1,0 +1,206 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+  background-color: #f4f5f5;
+}
+body {
+  background-color: #f4f5f5;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.325rem;
+  font-weight: 500;
+}
+
+.menu-item:hover {
+  cursor: pointer;
+}
+
+.menu-item > label {
+  text-align: center;
+}
+
+.item-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 1.325rem;
+  font-weight: 500;
+}
+
+.item-description {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-header > img {
+  width: 100%;
+}
+
+  .item-header > label {
+    font-weight: bold;
+    font-size: 1.925rem;
+  }
+
+
+  .basket {
+    width: 370px;
+    border: 1px solid #000000;
+    display: flex;
+    flex-direction: column;
+  }
+
+.checkout > .col, .checkout > .row > .col {
+  display: flex;
+  flex-direction: column !important;
+}
+
+.display-flex {
+  display: flex !important;
+}
+
+.button-label {
+  padding-left: 3px;
+}
+
+#basket-list, #basket-list > li {
+  list-style: none;
+  padding: 0;
+}
+  #basket-list > li {
+    display: flex;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .quantity {
+    width: 20px;
+    text-align: end;
+  }
+
+.cust-btn:hover {
+  cursor: pointer
+}
+
+.ratings {
+  margin-right: 10px;
+  display: flex;
+                
+}
+
+  .ratings i {
+    color: #cecece;
+    font-size: 1rem !important
+  }
+
+.rating-color {
+  color: #fbc634 !important
+}
+
+.review-count {
+  font-weight: 400;
+  margin-bottom: 2px;
+  font-size: 1rem !important
+}
+
+.small-ratings i {
+  color: #cecece
+}
+
+.review-stat {
+  font-weight: 300;
+  font-size: 18px;
+  margin-bottom: 2px
+}
+
+.avatar {
+  width: 3.5rem;
+}
+
+.profile {
+  font-weight: bold;
+}
+
+.order-quantity {
+  color: #37b44e;
+  font-weight: bold
+}
+
+.order-item {
+  padding-left: 10px;
+  font-weight: bold;
+  flex-grow: 1;
+}
+
+.order-price {
+  font-weight: bold;
+}
