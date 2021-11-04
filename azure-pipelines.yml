@@ -35,7 +35,8 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      $env::testPath = "$(pwd)Oakbrook.CoffeeShop\bin\Debug\net5.0"
+      $directory = pwd
+      $env::testPath = "$directory\Oakbrook.CoffeeShop\bin\Debug\net5.0"
       echo "key: $(team_key)"
       $(test_command)
 
