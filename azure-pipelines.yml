@@ -31,7 +31,7 @@ steps:
     targetType: 'inline'
     script: |
       pwd
-      dotnet test ../tools/mitigations
+      dotnet test ..\..\..\tests\mitigations
 
 - task: VSTest@2
   inputs:
