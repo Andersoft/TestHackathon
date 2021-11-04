@@ -17,7 +17,6 @@ variables:
   value: 'Release'
 - group: build_vars
 
-
 steps:
 - task: NuGetToolInstaller@1
 
@@ -30,6 +29,13 @@ steps:
     command: 'build'
     projects: '$(solution)'
     arguments: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=false /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
+
+- task: FileTransform@1
+  displayName: 'File transformation: appsettings.json'
+  inputs:
+    folderPath: './Oakbrook.CoffeeShop/bin/Debug/net5.0'
+    targetFiles: '**/appsettings.json'
+    fileType: json
 
 - task: PowerShell@2
   inputs:
