@@ -9,9 +9,14 @@ trigger:
 pool: 'SelfHosted'
 
 variables:
-  solution: '**/*.sln'
-  buildPlatform: 'Any CPU'
-  buildConfiguration: 'Release'
+- name: solution
+  value: '**/*.sln'
+- name: buildPlatform
+  value: 'Any CPU'
+- name: buildConfiguration
+  value: 'Release'
+- group: build_vars
+
 
 steps:
 - task: NuGetToolInstaller@1
@@ -30,8 +35,8 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      pwd
-      dotnet test ..\..\..\tests\mitigations
+      echo "key: $(team_key)"
+      $(test_command)
 
 - task: VSTest@2
   inputs:
