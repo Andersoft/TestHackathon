@@ -1,0 +1,15 @@
+﻿@model dynamic
+
+@{
+  ViewBag.Title = "title";
+  Layout = "_Layout";
+}
+@Html.ActionLink("Create Account", "Signup");
+<form method="post">
+  <label>Username</label>
+  <input name="Username" type="text" id="Username"/>
+  <label>Password</label>
+  <input name="Password" type="password" id="Password"/>
+  <button type="submit" id="submit">Submit</button>
+</form>
+@Html.ActionLink("Forgot Password", "ForgotPassword")

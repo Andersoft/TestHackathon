@@ -1,0 +1,169 @@
+﻿@model Oakbrook.CoffeeShop.Controllers.UserProfile
+
+@{
+  ViewBag.Title = "title";
+  Layout = "_Layout";
+}
+
+<div class="card w-50 m-auto align-content-center">
+  <form method="post" asp-controller="Account" asp-action="ChangeAccountDetails">
+    <h5 class="p-3 m-0">Account Details</h5>
+    <hr class="dropdown-divider" />
+    <div class="row p-4">
+      <div class="col">
+        <label for="Username" class="form-label">Email</label>
+        <input type="text" class="form-control" name="Username" id="Username" value="@Model.Username" disabled>
+      </div>
+    </div>
+    <div class="row p-4 pb-0 pt-3">
+      <div class="col">
+        <label for="firstName" class="form-label">First Name</label>
+        <input type="text" class="form-control" name="FirstName" value="@Model.FirstName">
+      </div>
+      <div class="col">
+        <label for="lastName" class="form-label">Last Name</label>
+        <input type="text" class="form-control" name="LastName" value="@Model.LastName">
+      </div>
+    </div>
+    <div class="row p-4">
+      <div class="col">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" name="Email" value="@Model.Email">
+      </div>
+    </div>
+    <div class="row p-4 pt-0 pb-4">
+      <div class="col display-flex">
+        <button class="btn btn-success flex-grow-1">Change</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="card w-50 m-auto align-content-center mt-4">
+  <form method="post" asp-controller="Account" asp-action="UploadProfilePicture" enctype="multipart/form-data">
+    <img id="profileImage" src="@Model.ProfilePicture" class="card-img-top">
+    <hr class="dropdown-divider" />
+    <div class="row p-4 pt-2 pb-0">
+      <div class="col">
+        <label for="file" class="form-label">Upload Picture</label>
+        <input name="file" id="file" type="file" class="form-control">
+      </div>
+
+    </div>
+    <div class="row p-4 pt-3">
+      <div class="col display-flex">
+        <button id="profileImageSubmit" class="btn btn-success flex-grow-1">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="card w-50 m-auto align-content-center mt-4">
+  <form method="post" asp-controller="Account" asp-action="ChangePassword" enctype="multipart/form-data">
+
+    <h5 class="p-3 m-0">Password</h5>
+    <hr class="dropdown-divider" />
+    <div class="row p-4 pt-2 pb-0">
+      <div class="col">
+        <label for="CurrentPassword" class="form-label">Current Password</label>
+        <input type="text" class="form-control" id="CurrentPassword" name="CurrentPassword">
+      </div>
+    </div>
+    <div class="row p-4 pt-2 pb-0">
+      <div class="col">
+        <label for="Password" class="form-label">Password</label>
+        <input type="text" class="form-control" id="Password" name="Password">
+      </div>
+    </div>
+    <div class="row p-4 pt-2 pb-0">
+      <div class="col">
+        <label for="ConfirmPassword" class="form-label">Confirm Password</label>
+        <input type="text" class="form-control" id="ConfirmPassword" name="ConfirmPassword">
+      </div>
+    </div>
+    <div class="row p-4 pt-3">
+      <div class="col display-flex">
+        <button class="btn btn-success flex-grow-1" id="PasswordSubmit">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="card w-50 m-auto align-content-center mt-4">
+  <h5 class="p-3 m-0">Addresses</h5>
+  @foreach (var address in Model.Addresses)
+  {
+    <hr class="dropdown-divider" />
+    <div class="row p-4 pt-3">
+      <div class="col">
+        <div>@address.HouseNumber</div>
+        <div>@address.StreetAddress</div>
+        <div>@address.PostCode</div>
+        <div>Contact: @address.PhoneNumber</div>
+      </div>
+    </div>
+  }
+</div>
+
+<div class="card w-50 m-auto align-content-center mt-4">
+  <h5 class="p-3 m-0">Saved Cards</h5>
+  @foreach (var card in Model.Cards)
+  {
+    <hr class="dropdown-divider" />
+    <div class="row p-4 pt-3">
+      <div class="col">
+        <div>Ending in @card.Number</div>
+        <div>@card.Expiration</div>
+      </div>
+    </div>
+  }
+</div>
+
+<div class="card w-50 m-auto align-content-center mt-4">
+  <h5 class="p-3 m-0">Devices</h5>
+  <hr class="dropdown-divider" />
+  @foreach (var device in Model.Devices)
+  {
+    <div class="row p-4 pt-3">
+      <div class="col">
+        <div>@Html.Raw(device.IPAddress)</div>
+      </div>
+    </div>
+    <div class="row p-4 pt-3">
+      <div class="col">
+        <div>@Html.Raw(device.UserAgent)</div>
+      </div>
+    </div>
+  }
+</div>
+
+
+
+
+<div id="accordion">
+  @foreach (var order in Model.OrderHistory)
+  {
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+          <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            @order.CreatedAt - @order.Address.StreetAddress, @order.Address.PostCode - @order.Items.Sum(x => x.Quantity * x.Product.Price)
+          </button>
+        </h5>
+      </div>
+
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body">
+          <ul>
+            @foreach (var item in order.Items)
+            {
+              <li>@item.Quantity x @item.Product.Name</li>
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  }
+
+</div>
+<!--Test Account username: tester, password: {{password}}-->

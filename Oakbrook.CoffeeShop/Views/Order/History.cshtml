@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Oakbrook.CoffeeShop.Controllers.Order>
+
+@{
+  ViewBag.Title = "title";
+  Layout = "_Layout";
+}
+
+<div id="accordion">
+  @foreach (var order in Model)
+  {
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+          <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            @order.CreatedAt - @order.Address.StreetAddress, @order.Address.PostCode - @order.Items.Sum(x => x.Quantity * x.Product.Price)
+          </button>
+        </h5>
+      </div>
+
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body">
+          <ul>
+            @foreach (var item in order.Items)
+            {
+              <li>@item.Quantity x @item.Product.Name</li>
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  }
+  
+</div>

@@ -1,0 +1,17 @@
+﻿@model Oakbrook.CoffeeShop.Controllers.InterstitialViewModel
+
+@{
+  ViewBag.Title = "title";
+  Layout = "_Layout";
+}
+
+<h2>title</h2>
+<script>
+  $(document).ready(() => {
+    setTimeout(() => {
+        window.location.href = '@Model.RedirectTo';
+      },
+      3000);
+
+  })
+</script>

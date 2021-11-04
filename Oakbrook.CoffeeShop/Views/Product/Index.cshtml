@@ -1,0 +1,35 @@
+@model Oakbrook.CoffeeShop.Controllers.ProductsViewModel
+
+@{
+  ViewBag.Title = "title";
+  Layout = "_Layout";
+}
+
+<h2>@Html.Raw(Model.Filter)</h2>
+<div class="row">
+
+    @foreach (var product in Model.Products)
+    {
+      <div class="col-sm-3 p-1">
+        <div class="card" style="margin: 0;height:100%">
+          <img src="/imgs/@product.Image" class="card-img-top">
+          <div class="card-body display-flex flex-column">
+            <h5 class="card-title" style="font-size: 1.06rem; max-width: 100%; text-overflow: ellipsis">@product.Name</h5>
+            <div class="flex-grow-1"></div>
+            <a href="@Url.Action("Product","Product", new { id = product.Id })" class="btn btn-success mb-2">More Info</a>
+            <button name="add" class="btn btn-success" onclick="addToBasket(@product.Id)">Add to basket</button>
+          </div>
+        </div>
+      </div>
+    }
+</div>
+
+
+@section Scripts
+{
+  <script>
+    function viewProduct(id) {
+      window.location.href = `/Product/${id}`;
+    }
+  </script>
+}

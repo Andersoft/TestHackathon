@@ -1,0 +1,207 @@
+﻿@model Oakbrook.CoffeeShop.Controllers.CheckoutViewModel
+
+@{
+  ViewBag.Title = "title";
+  Layout = "_Layout";
+}
+<form method="post" id="form">
+
+<div class="row">
+  <div class="col">
+    <div class="card m-auto align-content-center pb-4" id="existingAddress">
+      <h5 class="p-3 m-0">
+        <div class="row">
+          <div class="col-8">Delivery</div>
+          <div class="col-4 display-flex"><button type="button" class="btn btn-success flex-grow-1" onclick="newAddress()">New Address</button></div>
+        </div>
+      </h5>
+      <hr class="dropdown-divider" />
+      <div class="row p-4 pb-0">
+        <div class="col">
+          <select id="AddressId" name="AddressId" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+            <option selected>Open this select menu</option>
+            @foreach (var address in Model.Addresses)
+            {
+              @if (address == Model.Addresses.First())
+              {
+                <option selected value="@address.Id">@address.HouseNumber, @address.StreetAddress, @address.PostCode, @address.PhoneNumber</option>
+              }
+              else
+              {
+                <option value="@address.Id">@address.HouseNumber, @address.StreetAddress, @address.PostCode, @address.PhoneNumber</option>
+              }
+            }
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="card m-auto align-content-center pb-4" id="newAddress">
+      <h5 class="p-3 m-0">Delivery</h5>
+      <hr class="dropdown-divider"/>
+      <div class="row p-4 pb-0">
+        <div class="col">
+          <label for="HouseNumber" class="form-label">Flat number</label>
+          <input name="HouseNumber" type="text" class="form-control" id="HouseNumber">
+        </div>
+      </div>
+      <div class="row p-4 pb-0">
+        <div class="col">
+          <label for="StreetAddress" class="form-label">Street Address</label>
+          <input name="StreetAddress" type="text" class="form-control" id="StreetAddress">
+        </div>
+      </div>
+      <div class="row p-4 pb-0 pt-3">
+        <div class="col">
+          <label for="PostCode" class="form-label">Post Code</label>
+          <input name="PostCode" type="text" class="form-control" id="PostCode">
+        </div>
+        <div class="col">
+          <label for="PhoneNumber" class="form-label">Phone Number</label>
+          <input name="PhoneNumber" type="text" class="form-control" id="PhoneNumber">
+        </div>
+      </div>
+    </div>
+    
+    <div class="card m-auto align-content-center pb-4 mt-3" id="existingCard">
+      <h5 class="p-3 m-0">
+        <div class="row">
+          <div class="col-8">Payment</div>
+          <div class="col-4 display-flex"><button type="button" class="btn btn-success flex-grow-1" onclick="newCard()">New Card</button></div>
+        </div>
+      </h5>
+      <hr class="dropdown-divider" />
+      <div class="row p-4 pb-0">
+        <div class="col">
+          <select id="CardId" name="CardId" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+            <option selected>Open this select menu</option>
+            @foreach (var card in Model.Cards)
+            {
+              @if (card == Model.Cards.First())
+              {
+                <option selected value="@card.Id">Ending in @card.Number, @card.Expiration</option>
+              }
+              else
+              {
+                <option value="@card.Id">Ending in @card.Number, @card.Expiration</option>
+              }
+            }
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="card m-auto align-content-center pb-4 mt-3" id="newCard">
+      <h5 class="p-3 m-0">Payment</h5>
+      <hr class="dropdown-divider"/>
+      <div class="row p-4 pb-0">
+        <div class="col">
+          <label for="CardNumber" class="form-label">Card Number</label>
+          <input name="CardNumber" type="text" class="form-control" id="CardNumber">
+        </div>
+      </div>
+      <div class="row p-4 pb-0">
+        <div class="col">
+          <label for="expiry" class="form-label">Expiry Date</label>
+          <input name="ExpiryDate" type="text" class="form-control" id="ExpiryDate">
+        </div>
+        <div class="col">
+          <label for="CVV" class="form-label">CVV</label>
+          <input name="CVV" type="text" class="form-control" id="CVV">
+        </div>
+      </div>
+    </div>
+
+    <div class="card m-auto align-content-center pb-4 mt-3">
+      <h5 class="p-3 m-0">Promo</h5>
+      <hr class="dropdown-divider"/>
+      <div class="row p-4 pb-0">
+        <div class="col">
+          <label for="promocode" class="form-label">Promo Code</label>
+          <input type="text" class="form-control" name="promocode" id="promocode">
+          <input id="applied-discount" name="Discount" type="text" hidden/>
+          <input id="applied-discountCode" name="DiscountCode" type="text" hidden/>
+        </div>
+      </div>
+      <div class="row p-4 pb-0">
+        <div class="col display-flex">
+          <button type="button" class="btn btn-success mb-2 flex-grow-1" id="promocode-btn" onclick="addPromotion()">Add Code</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="col">
+    <div class="card basket sticky-top  p-3">
+      <div class="card-body display-flex flex-column">
+        <ul id="basket-list"></ul>
+        <hr class="dropdown-divider">
+        <div class="row">
+          <div class="col w-50">Subtotal</div>
+          <div class="col w-50">£<span id="subtotal">0.00</span></div>
+        </div>
+        <div class="row">
+          <div class="col w-50">Delivery</div>
+          <div class="col w-50">£<span id="delivery">5.99</span></div>
+        </div>
+        <div class="row">
+          <div class="col w-50">Discount</div>
+          <div class="col w-50">-£<span id="Discount">0.00</span></div>
+        </div>
+        <div class="row" id="promotion-tags"></div>
+        <hr class="dropdown-divider">
+        <div class="row">
+          <div class="col w-50">Total</div>
+          <div class="col w-50">£<span id="total">0.00</span></div>
+        </div>
+        <input id="basketId" name="BasketId" type="text" hidden />
+        <div class="row mt-3">
+          <button id="submit" class="btn btn-success flex-grow-1" id="pay">Pay</button>
+        </div>
+      </div>
+    </div>
+    </div>
+</div>
+</form>
+
+
+@section Scripts {
+  <script>
+
+    $(document).ready(function () {
+      let basketId = localStorage.getItem('basket');
+      $("#basketId").val(basketId);
+
+      @if (Model.Addresses.Any())
+      {
+        @Html.Raw("$('#newAddress').hide();")
+      }
+      else
+      {
+        @Html.Raw("$('#existingAddress').hide();")
+      }
+
+      @if (Model.Cards.Any())
+      {
+        @Html.Raw("$('#newCard').hide();")
+      }
+      else
+      {
+        @Html.Raw("$('#existingCard').hide();")
+      }
+    });
+
+    function newAddress() {
+      $('#existingAddress').hide();
+      $('#newAddress').show();
+      $('#AddressId').val(null);
+    }
+
+    function newCard() {
+      $('#existingCard').hide();
+      $('#newCard').show();
+      $('#CardId').val(null);
+    }
+
+  </script>
+}

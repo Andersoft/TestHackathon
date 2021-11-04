@@ -1,0 +1,11 @@
+﻿@model dynamic
+
+@{
+  ViewBag.Title = "title";
+  Layout = "_Layout";
+}
+
+<form asp-controller="Complaints" asp-action="Upload" method="post" enctype="multipart/form-data">
+  <input type="file" name="file" />
+  <button type="submit" id="submit">Upload File</button>
+</form>

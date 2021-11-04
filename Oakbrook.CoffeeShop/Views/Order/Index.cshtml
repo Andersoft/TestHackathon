@@ -1,0 +1,74 @@
+﻿@model Oakbrook.CoffeeShop.Controllers.Order
+
+@{
+  ViewBag.Title = "title";
+  Layout = "_Layout";
+}
+
+<div class="card w-50 m-auto align-content-center">
+  <img style="width: 100%" src="https://image.freepik.com/free-vector/order-tracking-delivery-transportation-parcel-map-with-pin-pointer-shipping-package_284092-1399.jpg" />
+  <h5 class="p-3 m-0 text-center">Calculating arrival time</h5>
+  <div class="row p-4 pt-0">
+    <div class="col ">
+      <div class="progress">
+        <div id="progress" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+      </div>
+    </div>
+  </div>
+  <hr class="dropdown-divider" />
+  <div class="row p-4 pb-0 pt-3">
+    <div class="col">
+      <h3>Order #@Model.Id</h3>
+    </div>
+  </div>
+  <div class="row p-4 pb-0 pt-0">
+    <div class="col">
+      <span>@Model.Address.HouseNumber, @Model.Address.StreetAddress, @Model.Address.PostCode</span>
+    </div>
+  </div>
+  <div class="row p-4">
+    <div class="col">
+      <ul style="list-style: none;" class="m-0 p-0">
+        @foreach (var item in Model.Items)
+        {
+          <li style="list-style: none;" class="m-0 p-0 display-flex">
+            <span class="order-quantity">@item.Quantity x</span>
+            <span class="order-item">@item.Product.Name</span>
+            <span class="order-price">£@item.Product.Price</span>
+          </li>
+        }
+        <li style="list-style: none;" class="m-0 p-0 display-flex">
+          <span class="order-quantity">Discount Code:</span>
+          <span id="DiscountCode" class="order-item">@Model.DiscountCode</span>
+          <span class="order-price">£@(Model.Items.Sum(x => x.Product.Price * x.Quantity) * Model.Discount * -1)</span>
+        </li>
+        <li style="list-style: none;" class="m-0 p-0 display-flex">
+          <span class="order-quantity">Delivery</span>
+          <span class="order-item"></span>
+          <span class="order-price">£5.99</span>
+        </li>
+        <li style="list-style: none;" class="m-0 p-0 display-flex">
+          <span class="order-quantity">Total:</span>
+          <span class="order-item"></span>
+          <span class="order-price">£<span id="order-total">@Model.Total</span></span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  let progress = 0;
+
+  $(document).ready(() => {
+    localStorage.removeItem("basket");
+    var refreshIntervalId = setInterval(() => {
+      if (progress >= 100) {
+        clearInterval(refreshIntervalId);
+      }
+      progress += 2;
+      $("#progress").css('width', `${progress}%`);
+    }, 250);
+  });
+</script>

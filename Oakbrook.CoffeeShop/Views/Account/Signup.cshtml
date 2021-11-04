@@ -1,0 +1,20 @@
+﻿@model dynamic
+
+@{
+  ViewBag.Title = "title";
+  Layout = "_Layout";
+}
+
+<form method="post">
+  <label>First Name</label>
+  <input name="FirstName" type="text" />
+  <label>Last Name</label>
+  <input name="LastName" type="text" />
+  <label>Email</label>
+  <input name="Email" type="text" />
+  <label>Username</label>
+  <input name="Username" type="text" />
+  <label>Password</label>
+  <input name="Password" type="password" />
+  <button type="submit" id="submit">Create</button>
+</form>

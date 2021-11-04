@@ -1,0 +1,16 @@
+﻿@model Oakbrook.CoffeeShop.Controllers.PasswordReset
+
+@{
+  ViewBag.Title = "title";
+  Layout = "_Layout";
+}
+
+<h2>@Model.Email</h2>
+<form method="post">
+  <label>Password</label>
+  <input name="Password" type="password" />
+  <label>Confirm Password</label>
+  <input name="confirmPassword" type="password" />
+  <input name="Token" value="@Model.Token" type="hidden" />
+  <button type="submit">Change password</button>
+</form>

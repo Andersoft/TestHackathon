@@ -1,0 +1,59 @@
+﻿@model Oakbrook.CoffeeShop.Controllers.NewComment
+
+
+
+<form asp-controller="Product" asp-action="Product" method="post">
+  <input asp-for="Name" autocomplete="off" class="form-control" readonly id="username"/>
+  <input asp-for="UserId" autocomplete="off" hidden id="UserId"/>
+  <select asp-for="Rating" id="Rating" onchange="validateForm()" class="form-select mt-3">
+    <option value="">--Please choose a rating--</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <input asp-for="Summary" id="Summary" placeholder="Summary" autocomplete="off" class="form-control  mt-3" onkeyup="validateForm()" />
+  <textarea asp-for="Review" placeholder="Comment" rows="4" cols="50" class="form-control  mt-3" id="Review" onkeyup="validateForm()">
+At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.
+</textarea>
+  <div class="row mt-3">
+    <div class="col-6">
+      <input asp-for="CaptchaQuestion" type="text" readonly value="@Model.CaptchaQuestion" class="form-control" />
+    </div>
+    <div class="col-6">
+      <input asp-for="CaptchaAnswer" type="text" id="CaptchaAnswer" onkeyup="validateForm()" class="form-control" />
+    </div>
+  </div>
+  <input asp-for="CaptchaId" type="text" hidden value="@Model.CaptchaId" />
+  <div class="row mt-3">
+    <div class="col display-flex">
+      <button class="btn btn-success flex-grow-1" id="submit">Submit</button>
+    </div>
+  </div>
+</form>
+
+
+<script>
+  function ratingValid() {
+    return $('#Rating').val() > 0 && $('#Rating').val() < 6;
+  }
+
+  function captchaFilled() {
+    return $('#CaptchaAnswer').val().trim().length > 0;
+  }
+
+  function hasComment() {
+    return $('#Review').val().trim().length > 0;
+  }
+
+  function validateForm() {
+    if (ratingValid() && captchaFilled() && hasComment()) {
+      $('#submit').prop('disabled', false);
+    }
+    else {
+      $('#submit').prop('disabled', true);
+    }
+  }
+</script>
+
