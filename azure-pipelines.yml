@@ -27,6 +27,12 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      dotnet test ../tools/mitigations
+
 - task: VSTest@2
   inputs:
     platform: '$(buildPlatform)'
