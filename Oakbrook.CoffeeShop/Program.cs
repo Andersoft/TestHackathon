@@ -4,6 +4,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -20,7 +21,7 @@ namespace Oakbrook.CoffeeShop
       Log.Logger = new LoggerConfiguration()
         .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
         .Enrich.FromLogContext()
-        .WriteTo.File("Logs/oakbrook-cafe-.log", rollingInterval:RollingInterval.Day)
+        .WriteTo.File("Logs/oakbrook-cafe-.log", rollingInterval: RollingInterval.Day)
         .CreateLogger();
 
       try
@@ -43,10 +44,15 @@ namespace Oakbrook.CoffeeShop
         Host.CreateDefaultBuilder(args)
           .UseSerilog()
           .ConfigureWebHostDefaults(webBuilder =>
+          {
+            if (args != null && args.Any())
             {
-              webBuilder.UseStartup<Startup>();
-              webBuilder.UseContentRoot(
-                "O:\\Github\\Oakbrook.CoffeeShop\\Oakbrook.CoffeeShop\\Oakbrook.CoffeeShop");
-            });
+              webBuilder.UseUrls(args);
+            }
+
+            webBuilder.UseStartup<Startup>();
+            
+            webBuilder.UseContentRoot(Directory.GetCurrentDirectory());
+          });
   }
 }

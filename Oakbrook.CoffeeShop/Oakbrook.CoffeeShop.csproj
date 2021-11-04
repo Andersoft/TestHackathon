@@ -1,10 +1,150 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿  <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\site.css" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\favicon.ico"><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\20-Chicken-McNuggets-ShareBox.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\7c72dea5dd171154fb24c5238824e984.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Apple-Grape-Fruit-Bag.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Apple-Pie.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Bacon-Double-Cheeseburger.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Bacon-Mayo-Chicken.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Banana-Milkshake-Medium.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Big-Mac.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Black-Coffee-Regular.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Breakfast-Roll-with-Brown-Sauce.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Breakfast-Roll-with-Ketchup.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Buxton-Mineral-Water-Still-250ml.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Buxton-Mineral-Water-Still.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\cadbury-crunchie-mcflurry.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Cappuccino-Regular.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Caramel-Iced-Frapp-Regular.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Carrot-Bag.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Cheeseburger.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Chicken-Legend-with-BBQ-Sauce.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Chicken-Legend-with-Cool-Mayo.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Chicken-Legend-with-Hot-Spicy-Mayo.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Chicken-McNuggets-6-pieces.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Chicken-Selects-3-pieces.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Chocolate-Milkshake-Medium.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Coca-Cola-Medium.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Coca-Cola-Zero-Sugar-Medium.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Crispy-Chicken-Bacon-Salad.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Crispy-Chicken-Salad.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\default_profile_0.png" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\default_profile_1.png" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\default_profile_2.png" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\default_profile_3.png" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Diet-Coke-Medium.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Double-Big-Mac.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Double-Cheeseburger.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Double-Espresso.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Double-Quarter-Pounder.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Fanta-Orange-Medium.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Filet-o-Fish.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Flat-White.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Fries-Medium.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Frozen-Strawberry-Lemonade-Regular.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Hamburger.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Hot-Chocolate-Regular.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Latte-Regular.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Maltesers-McFlurry.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Mayo-Chicken.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\McChicken-Sandwich.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\McPlant.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\meals-under400.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\meals-under600.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Millionaires-Donut-Xmas.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Muffin-With-Jam.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\OakbrookLogo.png" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Oasis-Medium.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Oreo-McFlurry.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Organic-Milk.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Quarter-Pounder-with-Cheese.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Robinsons-Fruit-Shoot.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Salted-Caramel-Latte-Regular.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Shaker-Side-Salad.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Smarties-McFlurry.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Spicy-Nacho-Cheese-Wedges.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Sprite-Zero-Medium.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Strawberry-Milkshake-Medium.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Tea-Regular.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\The-BBQ-Chicken-Bacon-One-Crispy.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\The-Spicy-Veggie-One.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\The-Sweet-Chilli-Chicken-One-Crispy.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Toffee-Latte-Regular.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Triple-Cheeseburger.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Tropicana-Orange-Juice.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Vanilla-Milkshake-Medium.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Vegetable-Deluxe.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Veggie-Dippers-2.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Veggie-Dippers-4.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Water-Deep-River-Rock-500ml.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\Water-hm-Deep-River-Rock-250ml.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\imgs\White-Coffee-Regular.jpg" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\js\site.js" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css.map" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.css" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.css.map" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js.map" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.js" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.js.map" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\bootstrap\LICENSE" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\jquery-validation\dist\additional-methods.js" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\jquery-validation\dist\additional-methods.min.js" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.js" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.min.js" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\jquery-validation\LICENSE.md" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\jquery\dist\jquery.js" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\jquery\dist\jquery.min.js" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\jquery\dist\jquery.min.map" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+    <None Include="wwwroot\lib\jquery\LICENSE.txt" ><CopyToOutputDirectory>Always</CopyToOutputDirectory></None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Markdig" Version="0.26.0" />
@@ -20,8 +160,4 @@
     </None>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\avatars\" />
-  </ItemGroup>
-
-</Project>
+  </Project>

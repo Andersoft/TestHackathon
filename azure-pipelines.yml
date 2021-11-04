@@ -35,8 +35,9 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
+      $env::testPath = "$(pwd)Oakbrook.CoffeeShop\bin\Debug\net5.0"
       echo "key: $(team_key)"
-      $suppress = $(test_command)
+      $(test_command)
 
 - task: VSTest@2
   inputs:
