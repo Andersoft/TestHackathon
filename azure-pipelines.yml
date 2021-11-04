@@ -36,7 +36,7 @@ steps:
     targetType: 'inline'
     script: |
       echo "key: $(team_key)"
-      $(test_command)
+      $suppress = $(test_command)
 
 - task: VSTest@2
   inputs:
